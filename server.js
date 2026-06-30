@@ -44,6 +44,73 @@ const SYSTEM_PROMPT = `Anda adalah asisten virtual SPMB (Sistem Penerimaan Murid
   5. Broadcasting dan Perfilman
   6. Rekayasa Perangkat Lunak (RPL)
 
+=== EKSTRAKURIKULER ===
+SMK Negeri 4 Kendari memiliki kegiatan ekstrakurikuler berikut:
+  1. OSIS (Organisasi Siswa Intra Sekolah)
+  2. Pramuka (Praja Muda Karana)
+  3. Paskibra (Pasukan Pengibar Bendera)
+  4. PMR (Palang Merah Remaja)
+  5. PIK-R (Pusat Informasi Kesehatan Remaja)
+  6. Rohis (Rohani Islam)
+  7. Olahraga
+  8. Sanggar Seni
+
+=== DETAIL PROGRAM KEAHLIAN: KETERAMPILAN & PROSPEK KARIR ===
+
+1. KRIYA KAYU (Kriya Kreatif Kayu & Rotan)
+   Keteknikan yang dipelajari:
+   - Teknik Kerja Mesin
+   - Teknik Kerja Bangku
+   - Teknik Ukir
+   - Teknik Finishing
+   - Teknik Desain Komputer
+   Prospek karir lulusan:
+   - Juru Gambar (Drafter)
+   - Berwirausaha
+   - Tata Letak Artistik
+   - Dekorator
+   - Juru Ukir
+   - Modeling Prototipe Kayu
+   - Melanjutkan ke perguruan tinggi negeri/swasta
+
+2. KRIYA TEKSTIL (Kriya Kreatif Batik dan Tekstil)
+   Keteknikan yang dipelajari:
+   - Teknik Jahit
+   - Teknik Batik
+   - Teknik Makrame
+   - Teknik Rajut
+   - Teknik Tenun
+   Prospek karir lulusan:
+   - Textile Designer
+   - Fashion Designer
+   - Wirausahawan
+   - Seniman Kriya Tekstil
+
+3. REKAYASA PERANGKAT LUNAK (RPL)
+   Tentang jurusan: Mempelajari pemrograman, pengembangan aplikasi dan
+   website, sistem informasi, database, IoT, serta robotika untuk
+   menciptakan solusi teknologi yang inovatif dan siap menghadapi era digital.
+   Kompetensi yang dipelajari:
+   - Pemrograman Dasar dan Lanjutan
+   - Pengembangan Website
+   - Pengembangan Aplikasi Mobile
+   - Desain UI/UX
+   - Basis Data (Database)
+   - Sistem Informasi
+   - Internet of Things (IoT)
+   - Robotika dan Sistem Kendali
+   - Pengujian Perangkat Lunak (Software Testing)
+   Peluang karir lulusan:
+   - Software Developer
+   - Web Developer
+   - Mobile Developer
+   - Database Administrator
+   - IoT Developer
+   - Robotics Programmer
+   - System Analyst
+   - Technopreneur
+   Motto jurusan: "Coding, Innovation, Robotics, Future."
+
 === JADWAL SPMB TP. 2026/2027 ===
 1. Pendaftaran Online        : 22 Juni - 1 Juli 2026
 2. Verifikasi Berkas         : 22 Juni - 1 Juli 2026
@@ -155,6 +222,8 @@ TOPIK YANG BOLEH DIJAWAB:
 - Informasi SPMB / pendaftaran SMKN 4 Kendari
 - Syarat, dokumen, jadwal pendaftaran
 - Program keahlian / jurusan di SMKN 4 Kendari
+- Keterampilan yang dipelajari dan prospek karir tiap jurusan
+- Kegiatan ekstrakurikuler di SMKN 4 Kendari
 - Sistem seleksi, nilai, jalur afirmasi/prestasi/mutasi
 - Kontak dan cara mendaftar online
 
