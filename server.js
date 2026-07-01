@@ -45,7 +45,7 @@ const SYSTEM_PROMPT = `Anda adalah asisten virtual SPMB (Sistem Penerimaan Murid
   2. Kriya Tekstil
   3. Desain Komunikasi Visual (DKV)
   4. Teknik Komputer Jaringan (TKJ)
-  5. Broadcasting dan Perfilman
+  5. Broadcasting dan Perfilman (BRF)
   6. Rekayasa Perangkat Lunak (RPL)
 
 === EKSTRAKURIKULER ===
