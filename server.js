@@ -144,6 +144,7 @@ SMK Negeri 4 Kendari memiliki kegiatan ekstrakurikuler berikut:
    Map MERAH  : Rekayasa Perangkat Lunak (RPL) dan Teknik Komputer Jaringan (TKJ)
    Map BIRU   : Broadcasting dan Perfilman (BRF) dan Desain Komunikasi Visual (DKV)
    Map KUNING : Kriya Kayu (KK) dan Kriya Tekstil (KT)
+   Calon murid WAJIB menggunakan map sesuai warna jurusan yang dipilih saat menyerahkan berkas pendaftaran.
 
 === SISTEM SELEKSI ===
 - Nilai Rapor (NR) = rata-rata Bahasa Indonesia, Matematika, Bahasa Inggris, IPA semester 1-5
