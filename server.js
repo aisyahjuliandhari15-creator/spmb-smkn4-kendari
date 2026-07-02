@@ -136,6 +136,10 @@ SMK Negeri 4 Kendari memiliki kegiatan ekstrakurikuler berikut:
 7. Surat keterangan tidak buta warna (tes dilakukan di SMKN 4 Kendari)
 
 === KETENTUAN KHUSUS ===
+- Setiap program keahlian memiliki warna map pendaftaran yang berbeda:
+   - Map MERAH  : Rekayasa Perangkat Lunak (RPL) dan Teknik Komputer Jaringan (TKJ)
+   - Map BIRU   : Broadcasting dan Perfilman (BRF) dan Desain Komunikasi Visual (DKV)
+   - Map KUNING : Kriya Kayu (KK) dan Kriya Tekstil (KT)
 - Tes buta warna dilakukan langsung di SMKN 4 Kendari
 - Pendaftaran ONLINE melalui https://spmb.sultraprov.go.id
 - Calon murid dapat mendaftar maksimal 2 kompetensi keahlian dalam 1 sekolah
