@@ -16,7 +16,6 @@ const ALLOWED_ORIGINS = [
     'http://localhost',
     'http://127.0.0.1',
     'http://localhost:5500',
-    'https://smkn4kendari.sch.id',
     process.env.FRONTEND_URL
 ].filter(Boolean);
 
