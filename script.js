@@ -39,19 +39,22 @@ const TOPIK_DIIZINKAN = [
 ];
 
 const TOPIK_DIBLOKIR = [
-    'judi','sabung ayam','taruhan','togel','slot','kasino','judi online',
-    'pesta judi','adu ayam','sabung','taruhan bola',
-    'narkoba','miras','mabuk','rokok','obat terlarang','narkotika','minuman keras',
-    'bunuh','mati','serang','ancam','perkosa','cabul','aniaya','keroyok',
-    'porno','bokep','sex','dewasa','vulgar','bugil',
-    'hack','bobol','retas','virus','malware','phishing','cheat',
+    'judi','judi online','judi slot','slot online','slot gacor','main slot',
+    'sabung ayam','adu ayam','sabung','taruhan','taruhan bola','togel','kasino',
+    'narkoba','narkotika','miras','minuman keras','mabuk','rokok','obat terlarang',
+    'bunuh','membunuh','dibunuh','bunuh diri','ingin mati','cara mati',
+    'ancam','mengancam','perkosa','cabul','aniaya','keroyok',
+    'porno','bokep','sex','seks','konten dewasa','video dewasa','film dewasa',
+    'vulgar','bugil',
+    'hack','bobol','retas','phishing','cheat','malware','buat virus','bikin virus',
+    'sebar virus',
     'politik','presiden','pilkada','partai','pemilu','caleg',
     'pacaran','pacar','cinta','cowo','cewe','gebetan','putus cinta',
     'selingkuh','pernikahan','nikah','baper','galau','patah hati',
     'pr sekolah','tugas sekolah','soal matematika','soal ipa','soal ujian',
     'bantu pr','kerjakan tugas','jawaban soal',
     'resep','masakan','makanan','kuliner','restoran',
-    'game','gaming','main game','free fire','mobile legend','ml','ff',
+    'main game','game online','joki game','top up game','free fire','mobile legend','ml','ff',
     'tiktok','instagram','facebook','youtube','medsos','twitter','snapchat',
     'cuaca','berita','gosip','artis','seleb','viral',
     'pelajar di','melihat orang tua','teman saya','sepulang sekolah',
@@ -62,28 +65,50 @@ const TOPIK_DIBLOKIR = [
     'anggap kamu','kamu adalah ai lain','bypass','jailbreak'
 ];
 
-function cekTopikPesan(teks) {
-    const teksLower = teks.toLowerCase();
 
-    for (const kata of TOPIK_DIBLOKIR) {
-        if (teksLower.includes(kata)) {
+const FILTER_VERSION = 'v2-kata-utuh';
+
+function escapeRegex(teks) {
+    return teks.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+const AWALAN  = '(?:me|mem|men|meng|meny|pe|pem|pen|peng|peny|per|di|ter|ber|ke|se)?';
+const AKHIRAN = '(?:kan|annya|nya|an|i|lah)?';
+
+function buatPolaKata(kata, toleranImbuhan = false) {
+    const inti = escapeRegex(kata.toLowerCase().trim()).replace(/[\s-]+/g, '[\\s-]+');
+    const pola = toleranImbuhan ? AWALAN + inti + AKHIRAN : inti;
+    return new RegExp('\\b' + pola + '\\b', 'i');
+}
+
+const POLA_DIIZINKAN = TOPIK_DIIZINKAN.map(k => buatPolaKata(k, true));
+const POLA_DIBLOKIR  = TOPIK_DIBLOKIR.map(k => buatPolaKata(k, false));
+
+function cekTopikPesan(teks) {
+    const teksBersih = String(teks).replace(/\s+/g, ' ').trim();
+
+    for (const pola of POLA_DIBLOKIR) {
+        if (pola.test(teksBersih)) {
             return { boleh: false, alasan: 'diblokir' };
         }
     }
 
-    const jumlahKata = teks.trim().split(/\s+/).length;
+    const jumlahKata = teksBersih.split(' ').length;
     if (jumlahKata <= 3) {
         return { boleh: true };
     }
 
-    for (const kata of TOPIK_DIIZINKAN) {
-        if (teksLower.includes(kata)) {
+    for (const pola of POLA_DIIZINKAN) {
+        if (pola.test(teksBersih)) {
             return { boleh: true };
         }
     }
 
     return { boleh: false, alasan: 'diluar_topik' };
 }
+
+console.log('[LA SMIK] filter topik ' + FILTER_VERSION + ' aktif');
+window.cekTopikPesan = cekTopikPesan;
 
 const PESAN_TOLAK_DIBLOKIR = `⛔ Maaf, pertanyaan tersebut tidak dapat saya layani.\n\nSaya hanya bisa membantu informasi seputar **SPMB SMKN 4 Kendari 2026/2027**.\n\nSilakan tanyakan hal-hal terkait pendaftaran, syarat, jadwal, atau jurusan yang tersedia. 😊`;
 
