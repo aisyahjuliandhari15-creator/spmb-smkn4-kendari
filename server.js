@@ -262,33 +262,60 @@ Jawab selalu dalam Bahasa Indonesia.`;
 
 
 const TOPIK_DIBLOKIR = [
-    'judi','sabung ayam','taruhan','togel','slot','kasino','judi online',
-    'pesta judi','adu ayam','sabung','taruhan bola',
-    'narkoba','miras','mabuk','rokok','obat terlarang','narkotika','minuman keras',
-    'bunuh','mati','serang','ancam','perkosa','cabul','aniaya','keroyok',
-    'porno','bokep','sex','dewasa','vulgar','bugil',
-    'hack','bobol','retas','virus','malware','phishing','cheat',
+    // Judi  ("slot" polos dihapus: bentrok dengan "slot kursi/slot jurusan")
+    'judi','judi online','judi slot','slot online','slot gacor','main slot',
+    'sabung ayam','adu ayam','sabung','taruhan','taruhan bola','togel','kasino',
+    // Zat terlarang
+    'narkoba','narkotika','miras','minuman keras','mabuk','rokok','obat terlarang',
+    // Kekerasan  ("mati" polos dihapus: bentrok dengan "otomatis")
+    'bunuh','membunuh','dibunuh','bunuh diri','ingin mati','cara mati',
+    'ancam','mengancam','perkosa','cabul','aniaya','keroyok',
+    // Konten dewasa
+    'porno','bokep','sex','seks','konten dewasa','video dewasa','film dewasa',
+    'vulgar','bugil',
+    // Peretasan  ("virus" polos dihapus: bentrok dengan materi TKJ/RPL)
+    'hack','bobol','retas','phishing','cheat','malware','buat virus','bikin virus',
+    'sebar virus',
+    // Politik
     'politik','presiden','pilkada','partai','pemilu','caleg',
+    // Asmara
     'pacaran','pacar','cinta','cowo','cewe','gebetan','putus cinta',
     'selingkuh','pernikahan','nikah','baper','galau','patah hati',
+    // Tugas sekolah
     'pr sekolah','tugas sekolah','soal matematika','soal ipa','soal ujian',
     'bantu pr','kerjakan tugas','jawaban soal',
+    // Umum
     'resep','masakan','makanan','kuliner','restoran',
-    'game','gaming','main game','free fire','mobile legend','ml','ff',
+    // Game  ("game" polos dihapus: bentrok dengan "game developer" prospek RPL)
+    'main game','game online','joki game','top up game','free fire','mobile legend','ml','ff',
     'tiktok','instagram','facebook','youtube','medsos','twitter','snapchat',
     'cuaca','berita','gosip','artis','seleb','viral',
+    // Curhat / cerita pribadi
     'pelajar di','melihat orang tua','teman saya','sepulang sekolah',
     'masalah keluarga','masalah teman','curhat','cerita saya','kisah saya',
     'saya melihat','orang tua teman','tetangga saya','kejadian di',
+    // Prompt injection
     'abaikan instruksi','lupakan aturan','ignore system','pretend you are',
     'act as','roleplay','pura-pura','seolah-olah kamu','kamu sekarang',
     'anggap kamu','kamu adalah ai lain','bypass','jailbreak'
 ];
 
+
+function escapeRegex(teks) {
+    return teks.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function buatPolaKata(kata) {
+    const inti = escapeRegex(kata.toLowerCase().trim()).replace(/[\s-]+/g, '[\\s-]+');
+    return new RegExp('\\b' + inti + '\\b', 'i');
+}
+
+const POLA_DIBLOKIR = TOPIK_DIBLOKIR.map(buatPolaKata);
+
 function cekTopikBackend(teks) {
-    const teksLower = teks.toLowerCase();
-    for (const kata of TOPIK_DIBLOKIR) {
-        if (teksLower.includes(kata)) {
+    const teksBersih = String(teks).replace(/\s+/g, ' ').trim();
+    for (const pola of POLA_DIBLOKIR) {
+        if (pola.test(teksBersih)) {
             return false;
         }
     }
